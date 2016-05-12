@@ -1,0 +1,9 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:Default:index }
+
+about:
+    path:     /chi-siamo
+    defaults: { _controller: UserBundle:Default:about }
+
+
