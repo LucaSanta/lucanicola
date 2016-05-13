@@ -90,15 +90,10 @@ input.bottone {
     font-size: 22px;
     padding-bottom: 40px;
 }
-
 .lineadueform input{
     display: inline-block;
     width: 20%;
 }
-
-
-
-
 .panel {
     margin-bottom: px;
     background-color: #fff;
@@ -109,31 +104,57 @@ input.bottone {
     padding-left:  10px;
     padding-left: 110px;
     margin-left: 20px;
-    border-color: #fed136;
-    border-width: 1px;
-    position: relative;
-
-
-
-}
-
-.caratteristiche-titolo {
-    font-family: helvetica neue;
-    color: #748F80;
-    padding-top: -60px;
-}
-
-.panel-heading {
-    background-color: white !important;
-    position: relative;
-
 }
 
 .bordo {
-border-color: #fed136;
+    border: solid;
+
+    border-color: #fed136;
     border-width: 1px;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 3%;
+
+}
+ .img-docenti{
+    float: right;
+    border: solid;
+    border-color: #fed136;
+    border-width: 1px;
+    margin-top: 13%;
+ }
+.btn-luca {
+    color: #fff;
+    background-color: #fed136;
+    border-color: #fed136;
+    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: 150;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 8px 8px;
+    float: right;
+    margin-bottom: 5%;
 }
 
+.btn-login {
+    border-color: transparent;
+    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: 200;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 8px 8px;
+    float: right;
+    margin-bottom: 5%;
+}
+
+.btn-login :hover{
+
+
+    background-color: #fed136;
+    border: 1px solid  #fed136;
+}
 
 
 
@@ -142,5 +163,10 @@ border-color: #fed136;
 }
 
 
-
+.ciccio{
+font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+display: inline-block;
+margin-top: 10px;
+margin-left: 3%;
+}
 
