@@ -28,6 +28,14 @@ class citta
      */
     private $nome;
 
+        /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="Provincia")
+     * @ORM\JoinColumn(name="id_provincia", referencedColumnName="id")
+     */
+    private $idProvincia;
+
 
     /**
      * Get id
@@ -61,6 +69,30 @@ class citta
     public function getNome()
     {
         return $this->nome;
+    }
+
+        /**
+     * Set idProvincia
+     *
+     * @param integer $idProvincia
+     *
+     * @return Citta
+     */
+    public function setIdProvincia($idProvincia)
+    {
+        $this->idProvincia = $idProvincia;
+
+        return $this;
+    }
+
+    /**
+     * Get idProvincia
+     *
+     * @return int
+     */
+    public function getIdProvincia()
+    {
+        return $this->idProvincia;
     }
 }
 

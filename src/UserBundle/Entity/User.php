@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use FOS\UserBundle\Model\User as BaseUser;
 
 
+
 /**
  * User
  *
@@ -62,6 +63,14 @@ class User extends BaseUser
      */
     private $infoPersonali;
 
+        /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="citta")
+     * @ORM\JoinColumn(name="id_citta", referencedColumnName="id")
+     */
+    private $idCitta;
+
     /**
      * @var string
      *
@@ -96,9 +105,18 @@ class User extends BaseUser
     */
     private $materie;
 
+
+        /**
+     * @ORM\OneToMany(targetEntity="Agenda", mappedBy="utente")
+     */
+    private $agenda;
+
     public function __construct()
     {
-      $this->gusti= new ArrayCollection();
+        parent::__construct();
+        $this->agenda = new ArrayCollection();
+        $this->gusti= new ArrayCollection();
+
     }
 
 
@@ -307,5 +325,48 @@ class User extends BaseUser
     {
         return $this->formazione;
     }
+     /**
+     * Set idCitta
+     *
+     * @param integer $idCitta
+     *
+     * @return Gelateria
+     */
+    public function setIdCitta($idCitta)
+    {
+        $this->idCitta = $idCitta;
+
+        return $this;
+    }
+
+    /**
+     * Get idCitta
+     *
+     * @return int
+     */
+    public function getIdCitta()
+    {
+        return $this->idCitta;
+    }
+
+
+
+         public function setAgenda($agenda)
+    {
+        $this->agenda = $agenda;
+
+        return $this;
+    }
+
+    /**
+     * Get social
+     *
+     * @return string
+     */
+    public function getAgenda()
+    {
+        return $this->agenda;
+    }
+
 }
 

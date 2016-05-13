@@ -42,6 +42,11 @@ class Agenda
      */
     private $oraFine;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="agenda")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+     private $utente;
 
     /**
      * Get id
@@ -123,6 +128,19 @@ class Agenda
     public function getOraFine()
     {
         return $this->oraFine;
+    }
+
+         public function setUtente($utente)
+    {
+        $this->utente = $utente;
+
+        return $this;
+    }
+
+
+    public function getUtente()
+    {
+        return $this->utente;
     }
 }
 
