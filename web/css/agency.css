@@ -96,58 +96,59 @@ input.bottone {
     width: 20%;
 }
 
-
-
-
-.panel {
-    margin-bottom: px;
-    background-color: #fff;
-    border-radius: 20px;
-    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-    box-shadow: 0 5px 5px rgba(0,0,0,.1);
-    padding-top:  20%;
-    padding-bottom:  20%;
-    padding-left:  10px;
-    padding-left: 110px;
-    margin-left: 20px;
-    border-color: #fed136;
-    border-width: 1px;
-    position: relative;
-
-
-
-}
-
-.caratteristiche-titolo {
-    font-family: helvetica neue;
-    color: #748F80;
-    padding-top: -60px;
-}
-
-.panel-heading {
-    background-color: white !important;
-    position: relative;
-
-}
-
 .bordo {
-border-color: #fed136;
-    border-width: 1px;
-}
-
-
-.img-circle {
-    min-height: 10px;
-    margin-left: -50%;
-    margin-top: 16%;
-    top: 0%;
-    display: inline-block;
-    height: auto;
+    border: solid;
     border-color: #fed136;
-    border-style: solid;
     border-width: 1px;
-    position: absolute;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 3%;
+
+}
+ .img-docenti{
+    float: right;
+    border: solid;
+    border-color: #fed136;
+    border-width: 1px;
+    margin-top: 13%;
+ }
+.btn-luca {
+    color: #fff;
+    background-color: #fed136;
+    border-color: #fed136;
+    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: 150;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 8px 8px;
+    float: right;
+    margin-bottom: 5%;
+}
+
+.btn-login {
+    border-color: transparent;
+    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: 200;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 8px 8px;
+    float: right;
+    margin-bottom: 5%;
+}
+
+.btn-login :hover{
+
+    background-color: #fed136;
+    border: 1px solid  #fed136;
 
 }
 
 
+.ciccio{
+font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+display: inline-block;
+margin-top: 10px;
+margin-left: 3%;
+}
