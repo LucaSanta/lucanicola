@@ -78,6 +78,14 @@ class User extends BaseUser
      */
     private $formazione;
 
+
+        /**
+     * @var int
+     *
+      * @ORM\Column(name="prezzo", type="integer", nullable=true)
+     */
+    private $prezzo;
+
         /**
      * @var string
      *
@@ -252,6 +260,34 @@ class User extends BaseUser
     public function getEta()
     {
         return $this->eta;
+    }
+
+
+
+
+
+    /**
+     * Set eta
+     *
+     * @param integer $prezzo
+     *
+     * @return User
+     */
+    public function setPrezzo($prezzo)
+    {
+        $this->prezzo = $prezzo;
+
+        return $this;
+    }
+
+    /**
+     * Get prezzo
+     *
+     * @return int
+     */
+    public function getPrezzo()
+    {
+        return $this->prezzo;
     }
 
     /**

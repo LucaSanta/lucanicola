@@ -22,4 +22,9 @@ class DefaultController extends Controller
     {
         return $this->render('UserBundle:Default:profilo.docenti.html.twig');
     }
+
+            public function doceAction()
+    {
+        return $this->render('UserBundle:Default:docente.html.twig');
+    }
 }
