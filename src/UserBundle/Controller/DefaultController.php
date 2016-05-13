@@ -16,4 +16,10 @@ class DefaultController extends Controller
     {
         return $this->render('UserBundle:Default:about.html.twig');
     }
+
+
+        public function docenteAction()
+    {
+        return $this->render('UserBundle:Default:profilo.docenti.html.twig');
+    }
 }

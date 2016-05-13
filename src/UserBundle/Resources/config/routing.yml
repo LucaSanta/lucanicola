@@ -6,4 +6,7 @@ about:
     path:     /chi-siamo
     defaults: { _controller: UserBundle:Default:about }
 
+docenti:
+    path:     /docenti
+    defaults: { _controller: UserBundle:Default:docente }
 
