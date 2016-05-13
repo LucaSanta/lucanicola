@@ -95,3 +95,59 @@ input.bottone {
     display: inline-block;
     width: 20%;
 }
+
+
+
+
+.panel {
+    margin-bottom: px;
+    background-color: #fff;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 5px 5px rgba(0,0,0,.1);
+    padding-top:  20%;
+    padding-bottom:  20%;
+    padding-left:  10px;
+    padding-left: 110px;
+    margin-left: 20px;
+    border-color: #fed136;
+    border-width: 1px;
+    position: relative;
+
+
+
+}
+
+.caratteristiche-titolo {
+    font-family: helvetica neue;
+    color: #748F80;
+    padding-top: -60px;
+}
+
+.panel-heading {
+    background-color: white !important;
+    position: relative;
+
+}
+
+.bordo {
+border-color: #fed136;
+    border-width: 1px;
+}
+
+
+.img-circle {
+    min-height: 10px;
+    margin-left: -50%;
+    margin-top: 16%;
+    top: 0%;
+    display: inline-block;
+    height: auto;
+    border-color: #fed136;
+    border-style: solid;
+    border-width: 1px;
+    position: absolute;
+
+}
+
+
