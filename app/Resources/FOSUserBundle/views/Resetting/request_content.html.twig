@@ -1,0 +1,49 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3 form-box">
+		<div class="form-top">
+			<div class="form-top-left">
+				<h3>Inserisci la tu amil e recupera la tua password!</h3>
+
+			</div>
+			<div class="form-top-right">
+				<i class="fa fa-lock"></i>
+			</div>
+		</div>
+		<div class="form-bottom">
+			<form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request login-form">
+
+				{% if invalid_username is defined %}
+				<div class="form-group">
+					<p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
+					{% endif %}
+
+					<label class="sr-only" for="form-username">Email</label>
+					<input type="text" id="username" name="username" class="form-username form-control "  required="required" style="greyInput" placeholder="E-mail o username"/>
+<br/>
+
+				<div>
+
+					<input type="submit" value="RECUPERA"  class=" col-sm-offset-4 submitButton btn btn-xl" name="_submit" value="{{ 'Invia'|trans }}" />
+					<br/>
+					<br/>
+					<p id="tornaAlLogin">Torna al login</p>
+
+				</div>
+	</div>
+			</div>
+
+
+
+
+
+
+
+			                    </form>
+		                    </div>
+                        </div>
+                    </div>
+
+
+<script src="{{ asset('/js/script.js') }}"></script>
