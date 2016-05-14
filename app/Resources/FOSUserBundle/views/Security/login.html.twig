@@ -7,17 +7,7 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
- <head>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-    </head>
-
-    <body>
 
         <!-- Top content -->
         <div class="top-content">
@@ -43,7 +33,9 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="" method="post" class="login-form">
+			                    <form role="form" action="{{ path("fos_user_security_check") }}" method="post" class="login-form">
+                                      <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
 			                    		  <input type="text" id="username" class="form-username form-control" placeholder="Username..." name="_username" value="{{ last_username }}" required="required" />
@@ -57,14 +49,14 @@
 
 
 
-			                     <a href="{{ path('fos_user_security_login') }}" class="portfolio-link btn btn-registra " data-toggle="modal">Non sei ancora registrato? registrati qui!</a>
+			                     <a href="{{ url('fos_user_registration_register') }}" class="portfolio-link btn btn-registra " data-toggle="modal">Non sei ancora registrato? registrati qui!</a>
 			                        </div>
 
 			                    </form>
 		                    </div>
                         </div>
                     </div>
-                    <div class="row">
+                  <!--   <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 social-login">
                         	<h3>...or login with:</h3>
                         	<div class="social-login-buttons">
@@ -79,22 +71,12 @@
 	                        	</a>
                         	</div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
         </div>
 
 
-        <!-- Javascript -->
 
-        <script src="{{asset('/js/scripts.js')}}"></script>
-
-        <!--[if lt IE 10]>
-            <script src="assets/js/placeholder.js"></script>
-        <![endif]-->
-
-    </body>
-
-</html>
 {% endblock fos_user_content %}
