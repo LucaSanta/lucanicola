@@ -33,6 +33,18 @@ form h2{
 
 }
 
+.btn-registra {
+    border-color: transparent;
+    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: 200;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 8px 8px;
+    float: left;
+    margin-bottom: 5%;
+}
+
 /*
 .cont_tondo_est {
 
