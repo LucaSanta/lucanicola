@@ -16,6 +16,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  *
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
+ * @Vich\Uploadable
  */
 class User extends BaseUser
 {
@@ -96,7 +97,7 @@ class User extends BaseUser
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
-     * @Vich\UploadableField(mapping="sala_image", fileNameProperty="immagine")
+     * @Vich\UploadableField(mapping="utente_image", fileNameProperty="immagine")
      *
      * @var File
      */

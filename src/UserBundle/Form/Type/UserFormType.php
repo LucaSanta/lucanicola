@@ -31,11 +31,18 @@ class UserFormType extends AbstractType
             ->add('nome', TextType::class, array('label' => false))
             ->add('cognome', TextType::class, array('label' => false))
             ->add('eta', IntegerType::class, array('label' => false))
-            ->add('data_creazione', DateType::class, array('label' => false))
-            ->add('posti', IntegerType::class, array('label' => false))
-            ->add('descrizione', TextType::class, array('label' => false), array('label' => false))
+            ->add('livelloScolastico', TextType::class, array('label' => false))
+            ->add('infoPersonali', TextType::class, array('label' => false))
+            ->add('prezzo', IntegerType::class, array('label' => false))
+            ->add('formazione', TextType::class, array('label' => false), array('label' => false))
             ->add('imageFile', VichImageType::class,array('label' => false))
+                        ->add('idCitta', EntityType::class, array(
+              'class'=>'UserBundle:citta',
+              'query_builder' => function (EntityRepository $er) {
+                  return $er->createQueryBuilder('c')->orderBy('c.nome', 'ASC');
+                } ) )
             ->add('save', SubmitType::class)
+
         ;
     }
 }

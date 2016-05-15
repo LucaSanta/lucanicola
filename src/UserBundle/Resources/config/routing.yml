@@ -16,3 +16,8 @@ docente:
     defaults: { _controller: UserBundle:Default:doce }
 
 
+edit:
+    path:     /edit
+    defaults: { _controller: UserBundle:Default:editProfilo}
+
+

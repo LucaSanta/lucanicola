@@ -3,9 +3,15 @@
 namespace UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use UserBundle\Entity\User;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use UserBundle\Form\Type\UserFormType;
 
 class DefaultController extends Controller
 {
+
     public function indexAction()
     {
       $materie=$this->getDoctrine()->getRepository('UserBundle:Materie')->findAll();
@@ -35,6 +41,39 @@ class DefaultController extends Controller
 
             public function doceAction()
     {
-        return $this->render('UserBundle:Default:docente.html.twig');
+
+     return $this->render('UserBundle:Default:docente.html.twig');
     }
+
+
+public function editProfiloAction(Request $request)
+    {
+        $utente = new User();
+//$utente = $this->getDoctrine()->getRepository('UserBundle:User')->find($request->get('id'));
+
+  if (!$utente) {
+   throw new NotFoundHttpException();
+   }
+  $form = $this->createForm(UserFormType::class, $utente);
+  $form->handleRequest($request);
+  if ($form->isSubmitted() && $form->isValid()) {
+         // Salvo cose.
+   $utente = $form->getData();
+   $em = $this->getDoctrine()->getManager();
+   $em->persist($utente);
+   $em->flush();
+
+   $this->addFlash(
+     'notice',
+     'Aula modificata con successo'
+     );
+
+ }
+    return $this->render('UserBundle:Default:modifica.profilo.html.twig', array(
+           'form' => $form->createView(),
+        ));
+
+    }
+
+
 }
