@@ -79,9 +79,9 @@
                     <li>
                         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                         <li class="dropdown">
-                            <a  class="dropbtn">
+                            <a  class="dropbtn">{{app.user.nome}}</a>
 
-                              {{ app.user.nome }}
+                              
 
                             <div class="dropdown-content ">
                                <a href="{{url('fos_user_security_logout')}}" class="nicola">LogOut</a>
@@ -89,7 +89,7 @@
                                 <a class="dropdown-item nicola" href="#">Modifica Profilo</a>
 
                             </div>
-                            </a>
+                            
                         </div>
                     </li>
                     {% else %}

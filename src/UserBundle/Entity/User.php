@@ -8,6 +8,10 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use FOS\UserBundle\Model\User as BaseUser;
+use UserBundle\Entity\Materie;
+use UserBundle\Entity\citta;
+
+
 
 
 
@@ -123,7 +127,7 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->agenda = new ArrayCollection();
-        $this->gusti= new ArrayCollection();
+        $this->materie= new ArrayCollection();
 
     }
 
@@ -403,6 +407,53 @@ class User extends BaseUser
     {
         return $this->agenda;
     }
+
+
+
+/**
+     * Add materie
+     *
+     * @param \UserBundle\Entity\Materie $materie
+     *
+     * @return User
+     */
+    public function addMaterie(\UserBundle\Entity\Materie $materie)
+    {
+        $this->Materie[] = $materie;
+        return $this;
+    }
+    /**
+     * Remove materie
+     *
+     * @param \UserBundle\Entity\Materie $materie
+     */
+    public function removeMaterie(\UserBundle\Entity\Materie $materie)
+    {
+        $this->materie->removeElement($materie);
+    }
+    /**
+     * Get materie
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMaterie()
+    {
+        return $this->materie;
+    }
+    /**
+     * Set materie
+     *
+     * @param ArrayCollection $materie
+     *
+     * @return User
+     */
+    public function setMaterie(ArrayCollection $materie = null)
+    {
+        $this->materie = $materie;
+        return $this;
+    }
+
+
 
 }
 

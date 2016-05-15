@@ -10,4 +10,37 @@ namespace UserBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+            public function getLivelloScol()
+             {
+            return $livello = $this ->getEntityManager()
+            ->createQuery(
+                'SELECT DISTINCT u.livelloScolastico FROM UserBundle:User u')
+            ->getResult();
+             }
+
+
+             public function getRicerca($city,$livello,$matery)
+             {
+               if($livello==NULL){
+                return $this->getEntityManager()
+                ->createQuery(
+                'SELECT u.nome, materie.nome
+                 FROM UserBundle:User u
+                 INNER JOIN u.idCitta citta
+                 INNER JOIN u.materie Materie
+                 WHERE citta.nome = :city AND materie.nome = :matery')
+                ->setParameter('city',$city)
+                ->setParameter('matery',$matery)
+                ->setParameter('livello',$livello)
+                ->getResult();
+
+
+
+               }
+
+             }
+
+
 }
+
+

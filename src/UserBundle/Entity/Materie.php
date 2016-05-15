@@ -3,6 +3,7 @@
 namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use UserBundle\Entity\User;
 
 
 /**
@@ -21,6 +22,11 @@ class Materie
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+     public function __construct()
+    {
+        $this->id = new ArrayCollection();
+    }
 
     /**
      * @var string
@@ -63,5 +69,7 @@ class Materie
     {
         return $this->nome;
     }
+
+
 }
 

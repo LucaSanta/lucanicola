@@ -13,6 +13,8 @@
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
 
+
+                {% for docente in docenti %}
                 <div class="col-md-3 col-sm-3 col-xs-5">
                   <a href="portfolio-item.html">
                     <img class="img-responsive img-hover img-circle img-docenti" src="{{ asset ('img/harper.jpg')}}" alt="">
@@ -21,61 +23,22 @@
                 <div class="col-md-7 col-sm-7 col-xs-7 bordo">
                 <div class="col-md-8 col-sm-8 col-xs-8">
 
-                  <span class="ciccio"><b>NOME E COGNOME </b>              <br>
-                 cacca, pipi, gianni, morandi            <br>
+                  <span class="ciccio"><b>{{docente.nome}}{{docente.cognome}} </b>              <br>
+                   {% for doce in docente.materie %}
+                  {{doce.nome}}
+                    {% endfor %}          <br>
 
-                  <b>E-mail:</b> luca@gmail.com</span>              <br>
+                  <b>E-mail:</b> {{docente.email}}</span>              <br>
                   </div>
                   <div class="col-md-4 col-sm-4 col-xs-4">
-                  <p class="prezzo">20 $/ora</p>
+                  <p class="prezzo">{{docente.prezzo}} $/ora</p>
                   <a href="#" class="portfolio-link btn btn-luca" data-toggle="modal">Dettagli</a>
                   </div>
                   </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-5">
-                  <a href="portfolio-item.html">
-                    <img class="img-responsive img-hover img-circle img-docenti" src="{{ asset ('img/harper.jpg')}}" alt="">
-                  </a>
-                </div>
-                <div class="col-md-7 col-sm-7 col-xs-7 bordo">
-                <div class="col-md-8 col-sm-8 col-xs-8">
-
-                  <span class="ciccio"><b>NOME E COGNOME </b>              <br>
+                  {% endfor %}
 
 
-                  <b>Materie:</b> cacca, pipi, gianni, morandi            <br>
-
-                  <b>E-mail:</b> luca@gmail.com</span>              <br>
-                  </div>
-                  <div class="col-md-4 col-sm-4 col-xs-4">
-                  <p class="prezzo">20 $/ora</p>
-                  <a href="#" class="portfolio-link btn btn-luca" data-toggle="modal">Dettagli</a>
-                  </div>
-                  </div>
-
-                                  <div class="col-md-3 col-sm-3 col-xs-5">
-                  <a href="portfolio-item.html">
-                    <img class="img-responsive img-hover img-circle img-docenti" src="{{ asset ('img/harper.jpg')}}" alt="">
-                  </a>
-                </div>
-                <div class="col-md-7 col-sm-7 col-xs-7 bordo">
-                <div class="col-md-8 col-sm-8 col-xs-8">
-
-                  <span class="ciccio"><b>NOME E COGNOME </b>              <br>
-
-
-                  <b>Materie:</b> cacca, pipi, gianni, morandi            <br>
-
-                  <b>E-mail:</b> luca@gmail.com</span>              <br>
-                  </div>
-                  <div class="col-md-4 col-sm-4 col-xs-4">
-                  <p class="prezzo">20 $/ora</p>
-                  <a href="#" class="portfolio-link btn btn-luca" data-toggle="modal">Dettagli</a>
-                  </div>
-                  </div>
-
-
-
+                
 
 
                   </div>
