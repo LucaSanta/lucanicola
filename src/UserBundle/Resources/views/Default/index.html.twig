@@ -156,26 +156,28 @@
 
     <!-- Clients Aside -->
     <aside class="clients">
+
         <div class="container">
+
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <a href="#">
-                        <img  class="img-responsive img-centered" alt="">
+                        <img  src="img/logos/festa18anniamilano.it_.jpeg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/startuplive.png" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/tag.png" class="img-responsive img-centered" alt="">
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <a href="#">
                         <img src="img/logos/startcup.png" class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img class="img-responsive img-centered" alt="">
-                    </a>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                        <img  class="img-responsive img-centered" alt="">
                     </a>
                 </div>
             </div>
@@ -305,52 +307,45 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <!-- Project Details Go Here -->
-        <form method="GET">
-
-            <p id="ricerca">Trova la tua gelateria!</p>
-
+        <form method="POST" action="{{ path("docenti") }}">
             <div class="lineaunoform">
 
+                <h3>Ricerca un docente per...</h3>
+                
+                <div class="form-group">
+                <input type="text" name="materia" class="form-username form-control" id="materiaselezionata" list="materia_list" placeholder="materia..." required="required">
+               <datalist id="materia_list">
+                     {% for materia in materie %}
+                    <option value={{materia.nome}}>{{materia.nome}}</option>
+                    {% endfor %}                    
+               </datalist>
+               </div>
+
+               <div class="form-group">
+               <input type="text" name="provincia" class="form-username form-control" id="provinciaselezionata" list="province_list" placeholder="provincia...">
+               <datalist id="province_list">
+                     {% for provincia in province %}
+                    <option value={{provincia.nome}}>{{provincia.nome}}</option>
+                    {% endfor %}     
+               </datalist>
+               </div>
+                
+
+               <div class="form-group">
+               <input type="text" name="città" id="cittaselezionata" class="form-username form-control" list="cities_list" placeholder="città...">
+               <datalist id="cities_list">
+               {% for city in cities %}
+               <option value={{city.nome}}>{{city.nome}}</option>
+               {% endfor %}       
+               </datalist>
+               </div>
+               </div>
 
 
-                <select id="gusto1" class="formgusti" name="gusto1">
-                    <option value="Cioccolato">Cioccolato</option>
-                    <option value="Pistacchio">Pistacchio</option>
-                    <option value="Crema">Crema</option>
-                    <option value="Vaniglia">Vaniglia</option>
-                </select>
 
-                <select id="gusto2"  class="formgusti" name="gusto2">
-                    <option value="Cioccolato">Cioccolato</option>
-                    <option value="Pistacchio">Pistacchio</option>
-                    <option value="Crema">Crema</option>
-                    <option value="Vaniglia">Vaniglia</option>
-                </select>
-
-                <select id="gusto3" class="formgusti" name="gusto3">
-                    <option value="Cioccolato">Cioccolato</option>
-                    <option value="Pistacchio">Pistacchio</option>
-                    <option value="Crema">Crema</option>
-                    <option value="Vaniglia">Vaniglia</option>
-                </select>
-            </div>
-
-            <div class="lineadueform">
-
-                <input type="text" class="formgusti" name="Comune" value="Comune">
-
-
-                <select id="giorni"  class="formgusti" name="aperture">
-                    <option value="Lun">Lunedì</option>
-                    <option value="Mart">Martedì</option>
-                    <option value="Merc">Mercoledì</option>
-                    <option value="Giov">Giovedì</option>
-                </select>
-
-            </div>
             <br/>
             <div style="text-align:center;">
-             <input type="submit" class="bottone" value="Ricerca" />
+             <input type="submit" class="btn btn-xl" value="Ricerca" />
          </div>
 
  </form>
