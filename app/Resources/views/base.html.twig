@@ -17,6 +17,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
 
+
     <!-- Custom CSS -->
     <link href="{{asset('/css/agency.css')}}" rel="stylesheet">
 
@@ -30,6 +31,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <script src="{{ asset('/js/angular.min.js') }}"></script>
     <script src="{{ asset('/js/app.js') }}" ></script>
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -74,8 +76,25 @@
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
                     <li>
-                    <a href="{{ path('fos_user_security_login') }}" class="page-scroll">LOGIN</a>
+                        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        <li class="dropdown">
+                            <a  class="dropbtn">
+
+                              {{ app.user.nome }}
+
+                            <div class="dropdown-content ">
+                               <a href="{{url('fos_user_security_logout')}}" class="nicola">LogOut</a>
+                                  <div class="dropdown-divider"></div>
+                                <a class="dropdown-item nicola" href="#">Modifica Profilo</a>
+
+                            </div>
+                            </a>
+                        </div>
                     </li>
+                    {% else %}
+                    <a href="{{ path('fos_user_security_login') }}" class="page-scroll">LOGIN</a>
+                </li>
+                {% endif %}
                 </ul>
 
             </div>

@@ -73,10 +73,28 @@
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
+                  <li>
+                        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        <li class="dropdown">
+                            <a  class="dropbtn">
+
+                              {{ app.user.nome }}
+
+                            <div class="dropdown-content ">
+                               <a href="{{url('fos_user_security_logout')}}" class="nicola">LogOut</a>
+                                  <div class="dropdown-divider"></div>
+                                <a class="dropdown-item nicola" href="#">Modifica Profilo</a>
+
+                            </div>
+                            </a>
+                        </div>
                     </li>
-                    <a class="page-scroll" href="{{ path('fos_user_security_login') }}" >LOGIN</a>
-                    </li>
+                    {% else %}
+                    <a href="{{ path('fos_user_security_login') }}" class="page-scroll">LOGIN</a>
+                </li>
+                {% endif %}
                 </ul>
+
             </div>
             <!-- /.navbar-collapse -->
         </div>
