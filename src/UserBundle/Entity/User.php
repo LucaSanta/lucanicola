@@ -400,7 +400,7 @@ class User extends BaseUser
     }
 
     /**
-     * Get social
+     * Get agenda
      *
      * @return string
      */
@@ -408,8 +408,19 @@ class User extends BaseUser
     {
         return $this->agenda;
     }
+  /**
+     * Get smaterie
+     * @param ArrayCollection $materie
+     *
+     * @return User
+     */
 
+         public function setMaterie(ArrayCollection $materie = null)
+    {
+        $this->materie = $materie;
 
+        return $this;
+    }
 
 /**
      * Add materie
@@ -436,25 +447,12 @@ class User extends BaseUser
      * Get materie
      *
      * @return \Doctrine\Common\Collections\Collection
+
      */
     public function getMaterie()
     {
         return $this->materie;
     }
-    /**
-     * Set materie
-     *
-     * @param ArrayCollection $materie
-     *
-     * @return User
-     */
-    public function setMaterie(ArrayCollection $materie = null)
-    {
-        $this->materie = $materie;
-        return $this;
-    }
-
-
 
 }
 
