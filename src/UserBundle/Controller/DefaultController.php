@@ -42,7 +42,7 @@ class DefaultController extends Controller
 
         public function docenteAction(Request $request)
     {
-        if(($request->request->get('citta')==null||$request->request->get('livello')==null||$request->request->get('materia')==null))
+        if(($request->request->get('citta')==null&&$request->request->get('livello')==null&&$request->request->get('materia')==null))
       {
               $docenti = $this->getDoctrine()->getRepository('UserBundle:User')->findAll();
       }

@@ -21,21 +21,30 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
 
              public function getRicerca($city,$livello,$matery)
              {
-               if($livello==NULL){
+               if($livello==null){
                 return $this->getEntityManager()
                 ->createQuery(
-                'SELECT u.nome, materie.nome
+                'SELECT u, Materie
                  FROM UserBundle:User u
-                 INNER JOIN u.idCitta citta
-                 INNER JOIN u.materie Materie
-                 WHERE citta.nome = :city AND materie.nome = :matery')
+                 JOIN u.idCitta citta
+                 JOIN u.materie Materie
+                 WHERE citta.nome = :city AND Materie.nome = :matery')
+                ->setParameter('city',$city)
+                ->setParameter('matery',$matery)
+                ->getResult();
+               }
+               else{
+                return $this->getEntityManager()
+                ->createQuery(
+                'SELECT u, Materie
+                 FROM UserBundle:User u
+                 JOIN u.idCitta citta
+                 JOIN u.materie Materie
+                 WHERE citta.nome = :city AND Materie.nome = :matery AND u.livelloScolastico = :livello')
                 ->setParameter('city',$city)
                 ->setParameter('matery',$matery)
                 ->setParameter('livello',$livello)
                 ->getResult();
-
-
-
                }
 
              }
