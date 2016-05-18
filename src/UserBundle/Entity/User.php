@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use FOS\UserBundle\Model\User as BaseUser;
 use UserBundle\Entity\Materie;
 use UserBundle\Entity\citta;
+use UserBundle\Entity\Agende;
 
 
 
@@ -119,15 +120,16 @@ class User extends BaseUser
     private $materie;
 
 
-        /**
-     * @ORM\OneToMany(targetEntity="Agenda", mappedBy="utente")
+     /**
+     * @ORM\OneToOne(targetEntity="Agende", mappedBy="user")
+     *
      */
-    private $agenda;
+    private $agende;
 
     public function __construct()
     {
         parent::__construct();
-        $this->agenda = new ArrayCollection();
+
         $this->materie= new ArrayCollection();
 
     }

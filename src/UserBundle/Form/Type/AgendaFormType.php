@@ -16,34 +16,28 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Doctrine\ORM\EntityRepository;
-class UserFormType extends AbstractType
+
+
+class AgendaFormType extends AbstractType
 {
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
 		$builder
-		->add('nome', TextType::class)
-		->add('cognome', TextType::class)
-		->add('eta', IntegerType::class)
-		->add('livelloScolastico', TextType::class)
-		->add('infoPersonali', TextType::class)
-		->add('prezzo', IntegerType::class)
-		->add('formazione', TextType::class)
-		->add('imageFile', VichImageType::class)
-		->add('idCitta', EntityType::class, array(
-			'class'=>'UserBundle:citta',
-			'choice_label'=>'nome',
-			'query_builder' => function (EntityRepository $er) {
-				return $er->createQueryBuilder('c')->orderBy('c.nome', 'ASC');
-			} ) )
-		->add('materie', EntityType::class, array(
-			'class'=>'UserBundle:Materie',
-			'choice_label'=>'nome',
-			'multiple'=>true,
-			'expanded'=>true))
-											->add('save', SubmitType::class)
-											;
-										}
-									}
-
-
-
+		->add('lunediInizio', IntegerType::class)
+		->add('lunediFine', IntegerType::class)
+		->add('martediInizio', IntegerType::class)
+		->add('martediFine', IntegerType::class)
+		->add('mercolediInizio', IntegerType::class)
+		->add('mercolediFine', IntegerType::class)
+		->add('giovediInizio', IntegerType::class)
+		->add('giovediFine', IntegerType::class)
+		->add('venerdiInizio', IntegerType::class)
+		->add('venerdiFine', IntegerType::class)
+		->add('sabatoInizio', IntegerType::class)
+		->add('sabatoFine', IntegerType::class)
+		->add('domenicaInizio', IntegerType::class)
+		->add('domenicaFine', IntegerType::class)
+		->add('save', SubmitType::class)
+		;
+	}
+}

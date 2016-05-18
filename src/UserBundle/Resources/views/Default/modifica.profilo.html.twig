@@ -9,7 +9,7 @@
 {{ form_row(form.imageFile,{'attr': {'class': 'form-username form-control','label': 'Carica un immagine profilo'}}) }}
 </div>
                             </div>
-                            
+
 
                             <div class="col-md-7 col-sm-7 col-xs-7 bordo">
 
@@ -59,6 +59,10 @@
 <input type="submit" id="_submit" class=" col-sm-offset-4  btn btn-xl" name="_submit" value="Salva" />
 
 {{ form_end(form) }}
+
+{{ form_start (form_agenda) }}
+{{ form_widget(form_agenda) }}
+{{ form_end(form_agenda) }}
 </div>
 </div>
 

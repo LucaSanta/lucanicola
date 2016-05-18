@@ -10,9 +10,11 @@ use UserBundle\Entity\Materie;
 use UserBundle\Entity\citta;
 use UserBundle\Entity\Provincia;
 use UserBundle\Entity\User;
+use UserBundle\Entity\Agende;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use UserBundle\Form\Type\UserFormType;
+use UserBundle\Form\Type\AgendaFormType;
 
 
 class DefaultController extends Controller
@@ -52,7 +54,7 @@ class DefaultController extends Controller
               $livello=$request->request->get('livello');
               $docenti = $this->getDoctrine()->getRepository('UserBundle:User')->getRicerca($citta,$livello,$materia);
 
-              
+
       }
 
         return $this->render('UserBundle:Default:profilo.docenti.html.twig', array(
@@ -69,7 +71,7 @@ class DefaultController extends Controller
 
      $docenti=$this->getDoctrine()->getRepository('UserBundle:User')->findById($part);
 
-     
+
      return $this->render('UserBundle:Default:docente.html.twig' , array(
            'docenti' => $docenti,
 
@@ -98,8 +100,21 @@ public function editProfiloAction(Request $request)
      );
 
  }
+
+     $agenda = new Agende();
+     $agenda->setUtente($this->getUser());
+        $formAgende = $this->createForm(AgendaFormType::class, $agenda);
+        $formAgende->handleRequest($request);
+        if ($formAgende->isSubmitted() && $formAgende->isValid()) {
+
+            $agenda = $formAgende->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($agenda);
+            $em->flush();
+        }
     return $this->render('UserBundle:Default:modifica.profilo.html.twig', array(
            'form' => $form->createView(),
+           'form_agenda' => $formAgende->createView(),
         ));
 
     }
