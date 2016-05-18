@@ -61,18 +61,25 @@ class DefaultController extends Controller
         ));
     }
 
-            public function doceAction()
+            public function doceAction(Request $request)
     {
+          $url = $_SERVER['REQUEST_URI'];
+          $parts = Explode('/', $url);
+          $part = $parts[2];
 
-     return $this->render('UserBundle:Default:docente.html.twig');
+     $docenti=$this->getDoctrine()->getRepository('UserBundle:User')->findById($part);
+
+     
+     return $this->render('UserBundle:Default:docente.html.twig' , array(
+           'docenti' => $docenti,
+
+        ));
     }
 
 
 public function editProfiloAction(Request $request)
     {
-        $utente = new User();
-//$utente = $this->getDoctrine()->getRepository('UserBundle:User')->find($request->get('id'));
-
+        $utente=$this->getDoctrine()->getRepository('UserBundle:User')->find($request->get('id'));
   if (!$utente) {
    throw new NotFoundHttpException();
    }
@@ -87,7 +94,7 @@ public function editProfiloAction(Request $request)
 
    $this->addFlash(
      'notice',
-     'Aula modificata con successo'
+     'Profilo docente modificato con successo'
      );
 
  }

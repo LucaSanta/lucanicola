@@ -12,12 +12,12 @@ docenti:
 
 
 docente:
-    path:     /docente
+    path:     /docente/{id}
     defaults: { _controller: UserBundle:Default:doce }
 
 
 edit:
-    path:     /edit
+    path:     /edit/{id}
     defaults: { _controller: UserBundle:Default:editProfilo}
 
 
