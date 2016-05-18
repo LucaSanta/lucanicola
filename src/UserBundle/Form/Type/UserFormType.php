@@ -1,15 +1,10 @@
 <?php
-
 namespace UserBundle\Form\Type;
-
 use UserBundle\Entity\User;
 use UserBundle\Entity\Provincia;
 use UserBundle\Entity\Materie;
-
 use UserBundle\Entity\citta;
-
 use UserBundle\Entity\Agenda;
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -21,8 +16,6 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Doctrine\ORM\EntityRepository;
-
-
 class UserFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -38,6 +31,7 @@ class UserFormType extends AbstractType
             ->add('imageFile', VichImageType::class)
             ->add('idCitta', EntityType::class, array(
               'class'=>'UserBundle:citta',
+              'choice_label'=>'nome',
               'query_builder' => function (EntityRepository $er) {
                return $er->createQueryBuilder('c')->orderBy('c.nome', 'ASC');
                 } ) )
@@ -47,7 +41,6 @@ class UserFormType extends AbstractType
               'multiple'=>true,
               'expanded'=>true))
             ->add('save', SubmitType::class)
-
         ;
     }
 }
