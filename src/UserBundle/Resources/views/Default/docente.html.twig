@@ -1,20 +1,23 @@
 {% extends "::base2.html.twig" %}
 {% block body %}
 
+{% for docente in docenti %}
 
 
 <section>
+
 	<div class="container">
 		<div class="col-md-12 sal">
 			<div class="col-lg-12 text-center">
-				<h2 class="section-heading">NOME E COGNOME</h2>
+
+				<h2 class="section-heading">{{docente.nome}}{{docente.cognome}} </h2>
 
 			</div>
 
 			<div class="col-md-3 col-sm-3 col-xs-5">
-				<a href="portfolio-item.html">
-					<img class="img-responsive img-hover img-circle img-docenti" src="{{ asset ('img/harper.jpg')}}" alt="">
-				</a>
+				
+					<img class="img-responsive img-hover img-circle img-docenti" src="{{ vich_uploader_asset(docente, 'imageFile') }}"  height="144" width="144" alt="{{docente.nome}}">
+				
 			</div>
 			<div class="col-md-7 col-sm-7 col-xs-7 bordo">
 				<div class="col-md-8 col-sm-8 col-xs-8">
@@ -22,28 +25,28 @@
 					<span class="ciccio"><b> </b>              <br>
 						<ul>
 
-							<li><strong>Email:</strong> johndoe@gmail.com</li>
-							<li><strong>Città:</strong> Boston</li>
-							<li><strong>Età:</strong> 31</li>
-							<li><strong>E-mail:</strong> luca@gmail.com</li>
-							<li><strong>Livello scolastico</strong> università</li>
+							<li><strong>Email:</strong> {{docente.email}}</li>
+							<li><strong>Città:</strong> {{docente.getIdCitta.nome}}</li>
+							<li><strong>Età:</strong> {{docente.eta}}</li>
+							<li><strong>Livello scolastico</strong>{{docente.livelloScolastico}}</li>
 						</ul></span>              <br>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-4">
-						<p class="prezzo"><strong>20 $/ora</strong> </p>
+						<p class="prezzo"><strong>{{docente.prezzo}} $/ora</strong> </p>
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 bordo">
 						<div class="col-md-8 col-sm-8 col-xs-8">
-							<span class="ciccio"><b>INFO PERSONALI: </b>              <br>
-								cacca, pipi, gianni, morandi <br>
+							<span class="ciccio"><b>INFO PERSONALI: </b>  
+							     <br>{{docente.infoPersonali}}
+								 <br>
 							</span>
 						</div>
 					</div>
 					<div class="col-md-12 col-sm-12 col-xs-12 bordo">
 						<div class="col-md-8 col-sm-8 col-xs-8">
 							<span class="ciccio"><b>FORMAZIONE: </b>              <br>
-								Ingegneria<br>
+								{{docente.formazione}}<br>
 							</span>
 						</div>
 					</div>
@@ -75,6 +78,7 @@
 								</tr>
 							</tbody>
 						</table>
+						
 					</div>
 				</div>
 			</div>
@@ -83,5 +87,5 @@
 	</div>
 
 </section>
-
+{% endfor %}
 {% endblock %}

@@ -38,6 +38,7 @@ class UserFormType extends AbstractType
             ->add('imageFile', VichImageType::class)
             ->add('idCitta', EntityType::class, array(
               'class'=>'UserBundle:citta',
+              'choice_label'=>'nome',
               'query_builder' => function (EntityRepository $er) {
                return $er->createQueryBuilder('c')->orderBy('c.nome', 'ASC');
                 } ) )
