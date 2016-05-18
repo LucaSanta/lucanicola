@@ -74,7 +74,7 @@ class DefaultController extends Controller
 
      return $this->render('UserBundle:Default:docente.html.twig' , array(
            'docenti' => $docenti,
-
+ì
         ));
     }
 
@@ -112,6 +112,7 @@ public function editProfiloAction(Request $request)
             $em->persist($agenda);
             $em->flush();
         }
+
     return $this->render('UserBundle:Default:modifica.profilo.html.twig', array(
            'form' => $form->createView(),
            'form_agenda' => $formAgende->createView(),
