@@ -88,7 +88,7 @@ public function editProfiloAction(Request $request)
    }
   $form = $this->createForm(UserFormType::class, $utente);
   $form->handleRequest($request);
-  if ($form->isSubmitted() && $form->isValid()) {
+  //if ($form->isSubmitted() && $form->isValid()) {
          // Salvo cose.
    $utente = $form->getData();
    $em = $this->getDoctrine()->getManager();
@@ -100,11 +100,12 @@ public function editProfiloAction(Request $request)
      'Profilo docente modificato con successo'
      );
 
+
  }
     return $this->render('UserBundle:Default:modifica.profilo.html.twig', array(
            'form' => $form->createView(),
 
-        ));
+
 
     }
 
