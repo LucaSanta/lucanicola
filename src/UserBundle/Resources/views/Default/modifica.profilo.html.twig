@@ -1,69 +1,12 @@
 {% extends "::base2.html.twig" %}
 {% block body %}
 <br> <br> <br>
-{{ form_start(form, {'method': 'post', 'action': path('docenti'), 'attr': {'class': 'login-form'}}) }}
-
-                <div class="container">
-                            <div class="col-md-3 col-sm-3 col-xs-5">
-<div class="form-group">
-{{ form_row(form.imageFile,{'attr': {'class': 'form-username form-control','label': 'Carica un immagine profilo'}}) }}
-</div>
-                            </div>
+{{ form_start(form, {'method': 'post',  'attr': {'class': 'login-form'}}) }}
+{{ form_widget(form) }}
 
 
-                            <div class="col-md-7 col-sm-7 col-xs-7 bordo">
+{{ form_end(form), {'action': path('docenti')} }}
 
-
-
-<div class="form-group">
-{{ form_row(form.nome,{'attr': {'class': 'form-username form-control','placeholder': 'Nome...'|trans},'label': 'Nome'}) }}
-</div>
-
-<div class="form-group">
-{{ form_row(form.cognome,{'attr': {'class': 'form-username form-control','label': 'Cognome'}}) }}
-</div>
-
-<div class="form-group">
-{{ form_row(form.eta,{'attr': {'class': 'form-username form-control','label': 'Età'}}) }}
-</div>
-
-<div class="form-group">
-{{ form_row(form.livelloScolastico,{'attr': {'class': 'form-username form-control','placeholder': 'Elementari, medie o universitario','label': 'A chi vuoi insegnare?'}}) }}
-</div>
-
-<div class="form-group">
-{{ form_row(form.infoPersonali,{'attr': {'class': 'form-username form-control','placeholder': 'Ho studiato..','label': 'Info personali'}}) }}
-</div>
-
-<div class="form-group">
-{{ form_row(form.prezzo,{'attr': {'class': 'form-username form-control','placeholder': 'Remunerazione oraria','label': 'Prezzo'}}) }}
-</div>
-
-
-<div class="form-group">
-{{ form_row(form.formazione,{'attr': {'class': 'form-username form-control','placeholder': 'Indica il titolo di studio più alto','label': 'Formazione'}}) }}
-</div>
-
-
-
-<div class="form-group">
-{{ form_row(form.idCitta,{'attr': {'class': 'form-username form-control','placeholder': 'Es. Milano','label': 'Città'}}) }}
-</div>
-
-
-<div class="form-group">
-{{ form_row(form.materie,{'attr': {'class': 'form-username form-control'},'label': 'Inserisci le materie da insegnare'            }) }}
-</div>
-
-
-
-  {{ form_row(form.save ,{ 'attr': {'class': 'col-sm-offset-4  btn btn-xl'}}) }}
-
-{{ form_end(form) }}
-
-{{ form_start (form_agenda) }}
-{{ form_widget(form_agenda) }}
-{{ form_end(form_agenda) }}
 </div>
 </div>
 

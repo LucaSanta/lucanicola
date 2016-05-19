@@ -394,21 +394,21 @@ class User extends BaseUser
 
 
 
-         public function setAgenda($agenda)
+         public function setAgende($agende)
     {
-        $this->agenda = $agenda;
+        $this->agende = $agende;
 
         return $this;
     }
 
     /**
-     * Get agenda
+     * Get agende
      *
-     * @return string
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getAgenda()
+    public function getAgende()
     {
-        return $this->agenda;
+        return $this->agende;
     }
   /**
      * Get smaterie

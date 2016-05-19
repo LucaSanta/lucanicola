@@ -37,7 +37,6 @@ class AgendaFormType extends AbstractType
 		->add('sabatoFine', IntegerType::class)
 		->add('domenicaInizio', IntegerType::class)
 		->add('domenicaFine', IntegerType::class)
-		->add('save', SubmitType::class)
 		;
 	}
 }

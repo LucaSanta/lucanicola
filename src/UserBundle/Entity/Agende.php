@@ -29,6 +29,12 @@ private $id;
 
 /**
  * @var int
+ * @Assert\Range(
+ *      min = 7,
+ *      max = 23,
+ *      minMessage = "orario minimo {{ limit }} ",
+ *      maxMessage = "orario massimo {{ limit }}"
+ *      )
  *
  * @ORM\Column(name="lunediInizio", type="integer", nullable=true)
  */
@@ -36,6 +42,12 @@ private $lunediInizio;
 
 /**
  * @var int
+ * @Assert\Range(
+ *      min = 7,
+ *      max = 23,
+ *      minMessage = "orario minimo {{ limit }} ",
+ *      maxMessage = "orario massimo {{ limit }}"
+ *      )
  *
  * @ORM\Column(name="lunediFine", type="integer", nullable=true)
  */
@@ -43,6 +55,12 @@ private $lunediFine;
 
 /**
  * @var int
+ * @Assert\Range(
+ *      min = 7,
+ *      max = 23,
+ *      minMessage = "orario minimo {{ limit }} ",
+ *      maxMessage = "orario massimo {{ limit }}"
+ *      )
  *
  * @ORM\Column(name="martediInizio", type="integer", nullable=true)
  */
@@ -50,6 +68,12 @@ private $martediInizio;
 
 /**
  * @var int
+* @Assert\Range(
+ *      min = 7,
+ *      max = 23,
+ *      minMessage = "orario minimo {{ limit }} ",
+ *      maxMessage = "orario massimo {{ limit }}"
+ *      )
  *
  * @ORM\Column(name="martediFine", type="integer", nullable=true)
  */
@@ -57,6 +81,12 @@ private $martediFine;
 
 /**
  * @var int
+ * @Assert\Range(
+ *      min = 7,
+ *      max = 23,
+ *      minMessage = "orario minimo {{ limit }} ",
+ *      maxMessage = "orario massimo {{ limit }}"
+ *      )
  *
  * @ORM\Column(name="mercolediInizio", type="integer", nullable=true)
  */
@@ -64,6 +94,12 @@ private $mercolediInizio;
 
 /**
  * @var int
+ * @Assert\Range(
+ *      min = 7,
+ *      max = 23,
+ *      minMessage = "orario minimo {{ limit }} ",
+ *      maxMessage = "orario massimo {{ limit }}"
+ *      )
  *
  * @ORM\Column(name="mercolediFine", type="integer", nullable=true)
  */
@@ -71,6 +107,12 @@ private $mercolediFine;
 
 /**
  * @var int
+ * @Assert\Range(
+ *      min = 7,
+ *      max = 23,
+ *      minMessage = "orario minimo {{ limit }} ",
+ *      maxMessage = "orario massimo {{ limit }}"
+ *      )
  *
  * @ORM\Column(name="giovediInizio", type="integer", nullable=true)
  */
@@ -78,6 +120,12 @@ private $giovediInizio;
 
 /**
  * @var int
+ * @Assert\Range(
+ *      min = 7,
+ *      max = 23,
+ *      minMessage = "orario minimo {{ limit }} ",
+ *      maxMessage = "orario massimo {{ limit }}"
+ *      )
  *
  * @ORM\Column(name="giovediFine", type="integer", nullable=true)
  */
@@ -85,6 +133,12 @@ private $giovediFine;
 
 /**
  * @var int
+ * @Assert\Range(
+ *      min = 7,
+ *      max = 23,
+ *      minMessage = "orario minimo {{ limit }} ",
+ *      maxMessage = "orario massimo {{ limit }}"
+ *      )
  *
  * @ORM\Column(name="venerdiInizio", type="integer", nullable=true)
  */
@@ -92,6 +146,12 @@ private $venerdiInizio;
 
 /**
  * @var int
+ * @Assert\Range(
+ *      min = 7,
+ *      max = 23,
+ *      minMessage = "orario minimo {{ limit }} ",
+ *      maxMessage = "orario massimo {{ limit }}"
+ *      )
  *
  * @ORM\Column(name="venerdiFine", type="integer", nullable=true)
  */
@@ -99,6 +159,12 @@ private $venerdiFine;
 
 /**
  * @var int
+ * @Assert\Range(
+ *      min = 7,
+ *      max = 23,
+ *      minMessage = "orario minimo {{ limit }} ",
+ *      maxMessage = "orario massimo {{ limit }}"
+ *      )
  *
  * @ORM\Column(name="sabatoInizio", type="integer", nullable=true)
  */
@@ -106,6 +172,12 @@ private $sabatoInizio;
 
 /**
  * @var int
+ * @Assert\Range(
+ *      min = 7,
+ *      max = 23,
+ *      minMessage = "orario minimo {{ limit }} ",
+ *      maxMessage = "orario massimo {{ limit }}"
+ *      )
  *
  * @ORM\Column(name="sabatoFine", type="integer", nullable=true)
  */
@@ -113,6 +185,12 @@ private $sabatoFine;
 
 /**
  * @var int
+ * @Assert\Range(
+ *      min = 7,
+ *      max = 23,
+ *      minMessage = "orario minimo {{ limit }} ",
+ *      maxMessage = "orario massimo {{ limit }}"
+ *      )
  *
  * @ORM\Column(name="domenicaInizio", type="integer", nullable=true)
  */
@@ -120,6 +198,12 @@ private $domenicaInizio;
 
 /**
  * @var int
+ * @Assert\Range(
+ *      min = 7,
+ *      max = 23,
+ *      minMessage = "orario minimo {{ limit }} ",
+ *      maxMessage = "orario massimo {{ limit }}"
+ *      )
  *
  * @ORM\Column(name="domenicaFine", type="integer", nullable=true)
  */

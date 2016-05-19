@@ -74,13 +74,14 @@ class DefaultController extends Controller
 
      return $this->render('UserBundle:Default:docente.html.twig' , array(
            'docenti' => $docenti,
-ì
+
         ));
     }
 
 
 public function editProfiloAction(Request $request)
     {
+        $utente = new User();
         $utente=$this->getDoctrine()->getRepository('UserBundle:User')->find($request->get('id'));
   if (!$utente) {
    throw new NotFoundHttpException();
@@ -100,22 +101,9 @@ public function editProfiloAction(Request $request)
      );
 
  }
-
-     $agenda = new Agende();
-     $agenda->setUtente($this->getUser());
-        $formAgende = $this->createForm(AgendaFormType::class, $agenda);
-        $formAgende->handleRequest($request);
-        if ($formAgende->isSubmitted() && $formAgende->isValid()) {
-
-            $agenda = $formAgende->getData();
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($agenda);
-            $em->flush();
-        }
-
     return $this->render('UserBundle:Default:modifica.profilo.html.twig', array(
            'form' => $form->createView(),
-           'form_agenda' => $formAgende->createView(),
+
         ));
 
     }
