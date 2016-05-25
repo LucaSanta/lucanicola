@@ -1,0 +1,49 @@
+{% extends "::base2.html.twig" %}
+{% block body %}
+<br> <br> <br>
+
+{{ form_start(form) }}
+       <div class="container">
+                            <div class="col-md-3 col-sm-3 col-xs-5">
+
+                            </div>
+                            <div class="col-md-7 col-sm-7 col-xs-7 bordo">
+
+
+
+<div class="form-group">
+{{ form_row(form.lunediInizio,{'attr': {'class': 'form-username form-control','placeholder': 'ora inizio'|trans},'label': 'Lunedì da'}) }}
+{{ form_row(form.lunediFine,{'attr': {'class': 'form-username form-control','placeholder': 'ora fine'|trans},'label': 'a'}) }}</div>
+<div class="form-group">
+{{ form_row(form.martediInizio,{'attr': {'class': 'form-username form-control','placeholder': 'ora inizio'|trans},'label': 'Martedì da'}) }}
+{{ form_row(form.martediFine,{'attr': {'class': 'form-username form-control','placeholder': 'ora fine'|trans},'label': 'a'}) }}</div>
+<div class="form-group">
+{{ form_row(form.mercolediInizio,{'attr': {'class': 'form-username form-control','placeholder': 'ora inizio'|trans},'label': 'Mercoledì da'}) }}
+{{ form_row(form.mercolediFine,{'attr': {'class': 'form-username form-control','placeholder': 'ora fine'|trans},'label': 'a'}) }}</div>
+<div class="form-group">
+{{ form_row(form.giovediInizio,{'attr': {'class': 'form-username form-control','placeholder': 'ora inizio'|trans},'label': 'Giovedì da'}) }}
+{{ form_row(form.giovediFine,{'attr': {'class': 'form-username form-control','placeholder': 'ora fine'|trans},'label': 'a'}) }}</div>
+<div class="form-group">
+{{ form_row(form.venerdiInizio,{'attr': {'class': 'form-username form-control','placeholder': 'ora inizio'|trans},'label': 'Venerdì da'}) }}
+{{ form_row(form.venerdiFine,{'attr': {'class': 'form-username form-control','placeholder': 'ora fine'|trans},'label': 'a'}) }}</div>
+<div class="form-group">
+{{ form_row(form.sabatoInizio,{'attr': {'class': 'form-username form-control','placeholder': 'ora inizio'|trans},'label': 'Sabato da'}) }}
+{{ form_row(form.sabatoFine,{'attr': {'class': 'form-username form-control','placeholder': 'ora fine'|trans},'label': 'a'}) }}</div>
+<div class="form-group">
+{{ form_row(form.domenicaInizio,{'attr': {'class': 'form-username form-control','placeholder': 'ora inizio'|trans},'label': 'Domenica da'}) }}
+{{ form_row(form.domenicaFine,{'attr': {'class': 'form-username form-control','placeholder': 'ora fine'|trans},'label': 'a'}) }}</div>
+<div class="hidden">
+{{ form_row(form.user, {value : app.user.id}) }}
+</div>
+
+
+<input type="submit" id="_submit" class=" col-sm-offset-4  btn btn-xl" name="_submit" value="Salva" />
+
+
+{{ form_end(form)}}
+
+</div>
+</div>
+
+
+{% endblock %}

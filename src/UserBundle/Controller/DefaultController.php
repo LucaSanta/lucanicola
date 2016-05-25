@@ -43,6 +43,7 @@ class DefaultController extends Controller
 
 
         public function docenteAction(Request $request)
+
     {
         if(($request->request->get('citta')==null&&$request->request->get('livello')==null&&$request->request->get('materia')==null))
       {
@@ -60,20 +61,24 @@ class DefaultController extends Controller
         return $this->render('UserBundle:Default:profilo.docenti.html.twig', array(
             'docenti' => $docenti,
 
+
         ));
     }
 
             public function doceAction(Request $request)
+
     {
           $url = $_SERVER['REQUEST_URI'];
           $parts = Explode('/', $url);
           $part = $parts[2];
+    $agenda = $this->getDoctrine()->getRepository('UserBundle:Agende')->findAll();
 
      $docenti=$this->getDoctrine()->getRepository('UserBundle:User')->findById($part);
 
 
      return $this->render('UserBundle:Default:docente.html.twig' , array(
            'docenti' => $docenti,
+           'agenda' => $agenda,
 
         ));
     }
@@ -88,7 +93,7 @@ public function editProfiloAction(Request $request)
    }
   $form = $this->createForm(UserFormType::class, $utente);
   $form->handleRequest($request);
-  //if ($form->isSubmitted() && $form->isValid()) {
+  if ($form->isSubmitted() && $form->isValid()) {
          // Salvo cose.
    $utente = $form->getData();
    $em = $this->getDoctrine()->getManager();
@@ -99,12 +104,61 @@ public function editProfiloAction(Request $request)
      'notice',
      'Profilo docente modificato con successo'
      );
+   return $this->RedirectToRoute('agende', array ('id'=> $request->get('id')));
 
-
- }
+}
     return $this->render('UserBundle:Default:modifica.profilo.html.twig', array(
            'form' => $form->createView(),
+            ));
+       }
 
+    public function editAgendeAction(Request $request)
+    {
+
+
+        $agende=$this->getDoctrine()->getRepository('UserBundle:Agende')->find($request->get('id'));
+  if ($agende==NULL) {
+    $agende= new Agende();
+
+
+  $form = $this->createForm(AgendaFormType::class, $agende);
+  $form->handleRequest($request);
+  if ($form->isSubmitted() && $form->isValid()) {
+         // Salvo cose.
+   $agende = $form->getData();
+   $em = $this->getDoctrine()->getManager();
+   $em->persist($agende);
+   $em->flush();
+
+   $this->addFlash(
+     'notice',
+     'Profilo docente modificato con successo'
+     );
+   return $this->redirectToRoute('docenti');
+   }
+}
+
+  $form = $this->createForm(AgendaFormType::class, $agende);
+  $form->handleRequest($request);
+  if ($form->isSubmitted() && $form->isValid()) {
+         // Salvo cose.
+   $agende = $form->getData();
+   $em = $this->getDoctrine()->getManager();
+   $em->persist($agende);
+   $em->flush();
+
+   $this->addFlash(
+     'notice',
+     'Profilo docente modificato con successo'
+     );
+   return $this->redirectToRoute('docenti');
+}
+
+
+
+    return $this->render('UserBundle:Default:agende.html.twig', array(
+           'form' => $form->createView(),
+   ));
 
 
     }

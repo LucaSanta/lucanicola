@@ -212,9 +212,9 @@ private $domenicaFine;
 
 /**
 * @var int
-* @ORM\OneToOne(targetEntity="User", inversedBy="agende")
-* @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+* @ORM\Column( type="integer")
 */
+
 private $user;
 
 
@@ -565,15 +565,15 @@ public function getDomenicaFine()
 }
 
 /**
- * Set utente
+ * Set user
  *
- * @param integer $utente
+ * @param integer $user
  *
  * @return Agende
  */
-public function setUtente($utente)
+public function setUser($user)
 {
-    $this->utenteutente = $utente;
+    $this->user= $user;
 
     return $this;
 }
@@ -583,9 +583,9 @@ public function setUtente($utente)
  *
  * @return int
  */
-public function getUtente()
+public function getUser()
 {
-    return $this->utente;
+    return $this->user;
 }
 }
 

@@ -15,9 +15,9 @@
 			</div>
 
 			<div class="col-md-3 col-sm-3 col-xs-5">
-				
+
 					<img class="img-responsive img-hover img-circle img-docenti" src="{{ vich_uploader_asset(docente, 'imageFile') }}"  height="144" width="144" alt="{{docente.nome}}">
-				
+
 			</div>
 			<div class="col-md-7 col-sm-7 col-xs-7 bordo">
 				<div class="col-md-8 col-sm-8 col-xs-8">
@@ -37,7 +37,7 @@
 
 					<div class="col-md-12 col-sm-12 col-xs-12 bordo">
 						<div class="col-md-8 col-sm-8 col-xs-8">
-							<span class="ciccio"><b>INFO PERSONALI: </b>  
+							<span class="ciccio"><b>INFO PERSONALI: </b>
 							     <br>{{docente.infoPersonali}}
 								 <br>
 							</span>
@@ -61,24 +61,34 @@
 								</tr>
 							</thead>
 							<tbody>
+							{% for age in agenda %}
+							 {% if age.user ==  app.user.id %}
 								<tr>
 									<td class="T-blue">Lunedì</td>
+									<td class="T-blue"> da {{age.lunediInizio}} a {{age.lunediFine}} </td>
 								</tr>
 								<tr>
 								<td class="T-blue">Martedì</td>
+								<td class="T-blue"> da {{age.martediInizio}} a {{age.martediFine}} </td>
 								</tr>
 								<tr>
 								<td class="T-blue ">Mercoledì</td>
+								<td class="T-blue"> da {{age.mercolediInizio}} a {{age.mercolediFine}} </td>
 								</tr>
 								<tr>
 								<td class="T-blue ">Giovedì</td>
+								<td class="T-blue"> da {{age.giovediInizio}} a {{age.giovediFine}} </td>
 								</tr>
 								<tr>
 								<td class="T-blue ">Venerdì </td>
+								<td class="T-blue"> da {{age.VenerdiInizio}} a {{age.venerdiFine}} </td>
 								</tr>
+
+								 {% endif %}
+								 {% endfor %}
 							</tbody>
 						</table>
-						
+
 					</div>
 				</div>
 			</div>
@@ -87,5 +97,6 @@
 	</div>
 
 </section>
+
 {% endfor %}
 {% endblock %}

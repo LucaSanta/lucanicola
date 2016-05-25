@@ -120,11 +120,7 @@ class User extends BaseUser
     private $materie;
 
 
-     /**
-     * @ORM\OneToOne(targetEntity="Agende", mappedBy="user")
-     *
-     */
-    private $agende;
+
 
     public function __construct()
     {
@@ -394,22 +390,7 @@ class User extends BaseUser
 
 
 
-         public function setAgende($agende)
-    {
-        $this->agende = $agende;
 
-        return $this;
-    }
-
-    /**
-     * Get agende
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getAgende()
-    {
-        return $this->agende;
-    }
   /**
      * Get smaterie
      * @param ArrayCollection $materie

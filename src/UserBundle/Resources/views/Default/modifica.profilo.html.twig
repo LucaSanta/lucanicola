@@ -2,7 +2,7 @@
 {% block body %}
 <br> <br> <br>
 
-
+{{ form_start(form) }}
        <div class="container">
                             <div class="col-md-3 col-sm-3 col-xs-5">
 <div class="form-group">
@@ -56,10 +56,11 @@
 </div>
 
 
+
 <input type="submit" id="_submit" class=" col-sm-offset-4  btn btn-xl" name="_submit" value="Salva" />
 
 
-{{ form_end(form), {'action': path('docenti')} }}
+{{ form_end(form) }}
 
 </div>
 </div>

@@ -16,8 +16,6 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Doctrine\ORM\EntityRepository;
-
-
 class AgendaFormType extends AbstractType
 {
 	public function buildForm(FormBuilderInterface $builder, array $options)
@@ -37,6 +35,9 @@ class AgendaFormType extends AbstractType
 		->add('sabatoFine', IntegerType::class)
 		->add('domenicaInizio', IntegerType::class)
 		->add('domenicaFine', IntegerType::class)
+		->add('user', IntegerType::class)
+
+		->add('save', SubmitType::class)
 		;
 	}
 }

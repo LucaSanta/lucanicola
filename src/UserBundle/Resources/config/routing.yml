@@ -16,6 +16,11 @@ docente:
     defaults: { _controller: UserBundle:Default:doce }
 
 
+agende:
+    path:     /agende/{id}
+    defaults: { _controller: UserBundle:Default:editAgende }
+
+
 edit:
     path:     /edit/{id}
     defaults: { _controller: UserBundle:Default:editProfilo}

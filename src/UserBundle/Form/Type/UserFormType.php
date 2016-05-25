@@ -1,6 +1,10 @@
 <?php
 namespace UserBundle\Form\Type;
 use UserBundle\Entity\User;
+use UserBundle\Entity\Provincia;
+use UserBundle\Entity\Materie;
+use UserBundle\Entity\citta;
+use UserBundle\Entity\Agende;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -19,6 +23,24 @@ class UserFormType extends AbstractType
     {
         $builder
             ->add('nome', TextType::class)
+            ->add('cognome', TextType::class)
+            ->add('eta', IntegerType::class)
+            ->add('livelloScolastico', TextType::class)
+            ->add('infoPersonali', TextType::class)
+            ->add('prezzo', IntegerType::class)
+            ->add('formazione', TextType::class)
+            ->add('imageFile', VichImageType::class)
+            ->add('idCitta', EntityType::class, array(
+              'class'=>'UserBundle:citta',
+              'choice_label'=>'nome',
+              'query_builder' => function (EntityRepository $er) {
+               return $er->createQueryBuilder('c')->orderBy('c.nome', 'ASC');
+                } ) )
+             ->add('materie', EntityType::class, array(
+              'class'=>'UserBundle:Materie',
+              'choice_label'=>'nome',
+              'multiple'=>true,
+              'expanded'=>true))
 
             ->add('save', SubmitType::class)
         ;
